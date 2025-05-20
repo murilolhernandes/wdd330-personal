@@ -16,8 +16,15 @@ function doStuff(data) {
   results.results.forEach((pokemon) => {
     const div = document.createElement("div");
     div.textContent = pokemon.name;
-    document.querySelector("main").appendChild(div);
+    document.querySelector(".pokemon").appendChild(div);
   });
 }
 getPokemon(url);
 console.log("second: ", results);
+
+let canvas = document.querySelector("#canvasElem");
+canvas.onmousemove = function (e) {
+  let ctx = canvas.getContext("2d");
+  ctx.lineTo(e.clientX, e.clientY);
+  ctx.stroke();
+};
